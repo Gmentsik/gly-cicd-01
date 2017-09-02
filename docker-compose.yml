@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    ports:
+      - 8464:8080
