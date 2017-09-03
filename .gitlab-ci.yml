@@ -12,7 +12,7 @@ test:api:
   - mvn clean validate compile test -B
 
 
-test:api:
+test2:api:
   stage: test2
   image: maven:3.3.9-jdk-8-alpine
   script:
