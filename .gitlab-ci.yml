@@ -1,0 +1,12 @@
+cache:
+  paths:
+    - /root/.m2/repository/
+
+stages:
+- test
+
+test:api:
+  stage: test
+  image: maven:3.3.9-jdk-8-alpine
+  script:
+  - mvn clean validate compile test -B
