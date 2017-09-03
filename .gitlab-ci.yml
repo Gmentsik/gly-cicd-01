@@ -1,19 +1,14 @@
 variables:
-  MAVEN_OPTS: "-Dmaven.repo.local=/cache/maven.repository"
+  MAVEN_OPTS: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN
+               -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true
+               -Dorg.slf4j.simpleLogger.defaultLogLevel=WARN
+               -Dmaven.repo.local=/cache/maven.repository"
 
 stages:
 - test
-- test2
 
 test:api:
   stage: test
-  image: maven:3.3.9-jdk-8-alpine
-  script:
-  - mvn clean validate compile test -B
-
-
-test2:api:
-  stage: test2
   image: maven:3.3.9-jdk-8-alpine
   script:
   - mvn clean validate compile test -B
