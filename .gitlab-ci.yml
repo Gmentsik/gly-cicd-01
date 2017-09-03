@@ -3,9 +3,17 @@ variables:
 
 stages:
 - test
+- test2
 
 test:api:
   stage: test
+  image: maven:3.3.9-jdk-8-alpine
+  script:
+  - mvn clean validate compile test -B
+
+
+test:api:
+  stage: test2
   image: maven:3.3.9-jdk-8-alpine
   script:
   - mvn clean validate compile test -B
