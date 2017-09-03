@@ -12,4 +12,5 @@ test:api:
   stage: test
   image: maven:3.3.9-jdk-8-alpine
   script:
+  - mvn -X help:evaluate -Dexpression=settings.localRepository | grep -v '\[INFO\]'
   - mvn clean validate compile test -B
