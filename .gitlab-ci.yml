@@ -7,6 +7,7 @@ variables:
 stages:
 - test
 - pack
+- docker
 
 test:api:
   stage: test
@@ -22,3 +23,11 @@ pack:api:
   artifacts:
     paths:
     - ./target/*.war
+
+docker:api:
+  stage: docker
+  image: docker:latest
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
