@@ -9,5 +9,5 @@ The pipeline will be triggered when pushing to the git repo. We will define some
 You will need to have a properly configured Gitlab instance with a connected gitlab-runner.
 
 Checkout the Full Blog Post:
-https://gerge.ly/how-to-ci-cd-in-gitlab/
+http://gmentsik.com/ci/2017/09/14/gitlab-ci-cd/
 
